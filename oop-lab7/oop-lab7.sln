@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "oop-lab7", "oop-lab7.csproj", "{61F2AA02-45E9-4C7E-928A-80C11D3C745C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleClassLibrary", "SimpleClassLibrary\SimpleClassLibrary.csproj", "{28FF492A-81B3-40C2-9ACC-4BBB77C9D0BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{61F2AA02-45E9-4C7E-928A-80C11D3C745C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61F2AA02-45E9-4C7E-928A-80C11D3C745C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61F2AA02-45E9-4C7E-928A-80C11D3C745C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28FF492A-81B3-40C2-9ACC-4BBB77C9D0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28FF492A-81B3-40C2-9ACC-4BBB77C9D0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28FF492A-81B3-40C2-9ACC-4BBB77C9D0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28FF492A-81B3-40C2-9ACC-4BBB77C9D0BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SimpleClassLibrary;
 
 namespace oop_lab7
 {
@@ -27,6 +28,8 @@ namespace oop_lab7
                 string group = Console.ReadLine();
                 Console.Write("Номер курсу: ");
                 int year = IntCorrect();
+                Console.WriteLine("Вартість навчання за місяць: ");
+                double price = SetPrice();
                 Result[] results = new Result[subjectsNumber];
                 for(int j = 0; j < subjectsNumber; j++)
                 {
@@ -39,7 +42,7 @@ namespace oop_lab7
                     int points = IntCorrect();
                     results[j] = new Result(subject, teacher, points);
                 }
-                student[i] = new Student(name, surname, group, year, results);
+                student[i] = new Student(name, surname, group, year, price, results);
             }
             return student;
         }
@@ -50,6 +53,7 @@ namespace oop_lab7
             Console.WriteLine($"Прізвище: {student[n].GetSurname()}");
             Console.WriteLine($"Шифр групи: {student[n].GetGroup()}");
             Console.WriteLine($"Номер курсу: {student[n].GetYear()}");
+            Console.WriteLine($"Вартість навчання за місяць: {student[n].GetMonthPrice()} грн, \nза рік: {student[n].GetYearPrice()} грн, \nза весь період навчання: {student[n].GetTotalPrice()} грн");
             for (int j = 0; j < student[n].GetResults().Length; j++)
             {
                 Console.Write($"Назва предмета: {student[n].GetResults()[j].GetSubject()}");
@@ -68,6 +72,7 @@ namespace oop_lab7
                 Console.WriteLine($"Прізвище: {student[i].GetSurname()}");
                 Console.WriteLine($"Шифр групи: {student[i].GetGroup()}");
                 Console.WriteLine($"Номер курсу: {student[i].GetYear()}");
+                Console.WriteLine($"Вартість навчання за місяць: {student[i].GetMonthPrice()} грн, \nза рік: {student[i].GetYearPrice()} грн, \nза весь період навчання: {student[i].GetTotalPrice()} грн");
                 for (int j = 0; j < student[i].GetResults().Length; j++)
                 {
                     Console.Write($"Назва предмета: {student[i].GetResults()[j].GetSubject()}");
@@ -165,6 +170,22 @@ namespace oop_lab7
             }while(!isCorrect);
             return n;
         }
+        static double DoubleCorrect()
+        {
+            double n;
+            bool isCorrect = false;
+            do
+            {
+                isCorrect = double.TryParse(Console.ReadLine(), out n);
+                if (isCorrect == false)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Помилка введення значення! Будь ласка, повторіть введення ще раз!");
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                }
+            } while (!isCorrect);
+            return n;
+        }
         static void Menu()
         {
             Console.WriteLine("1 - Ввести інформацію про студентів");
@@ -177,6 +198,46 @@ namespace oop_lab7
             Console.WriteLine("8 - Сортування студентів за середнім балом");
             Console.WriteLine("9 - Сортування студентів за прізвищем");
             Console.WriteLine("0 - Вийти");
+        }
+        static void CurrencyMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("\tОберіть валюту:");
+            Console.WriteLine("1 - UAH");
+            Console.WriteLine("2 - EUR");
+            Console.WriteLine("3 - USD");
+            Console.WriteLine("4 - PLN");
+        }
+        static double SetPrice()
+        {
+            int c;
+            double value;
+            CurrencyMenu();
+            Console.WriteLine();
+            do
+            {
+                c = IntCorrect();
+                switch (c)
+                {
+                    case 1:
+                        Console.WriteLine("Введіть значення в UAH: ");
+                        return value = DoubleCorrect();
+                    case 2:
+                        Console.WriteLine("Введіть значення в EUR: ");
+                        return value = DoubleCorrect() * 40;
+                    case 3:
+                        Console.WriteLine("Введіть значення в USD: ");
+                        return value = DoubleCorrect() * 37.4406;
+                    case 4:
+                        Console.WriteLine("Введіть значення в PLN: ");
+                        return value = DoubleCorrect() * 8.5851;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Помилка введення значення! Будь ласка, повторіть введення ще раз!");
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        break;
+                }
+            }while(true) ;
         }
         static void Main(string[] args)
         {

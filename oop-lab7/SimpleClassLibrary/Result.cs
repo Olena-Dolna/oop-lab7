@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace oop_lab7
+namespace SimpleClassLibrary
 {
     public class Result
     {
